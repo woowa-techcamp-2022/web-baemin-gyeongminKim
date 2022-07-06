@@ -25,11 +25,131 @@ body {
 .profile {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  border: none;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px 15px;
+  background-color: white;
+}
+.profile .login-ic {
+  width: 20px;
+  height: 20px;
+  margin: 15px;
+  transform: rotate(180deg);
+}
+.profile p {
+  font-size: 24px;
+  color: gray;
+  margin: 0 auto 0 15px;
 }
 .profile img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   object-fit: contain;
+}
+.nav-container ol {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  list-style: none;
+}
+
+.nav-container ol li {
+  margin: auto;
+  padding: 10px 0;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  outline: 1px solid #f4f4f4;
+}
+
+.nav-container ol p {
+  text-align: center;
+  margin: 8px 0;
+}
+
+.nav-container ol img {
+  margin: auto;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.sub-menu {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.eco-campaign {
+  display: flex;
+  width: 100%;
+  background-color: white;
+  border: none;
+  padding: 10px 15px;
+}
+.eco-campaign p {
+  font-size: 16px;
+  margin: auto auto auto 15px;
+  text-align: start;
+}
+.eco-campaign .eco-ic {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+.eco-campaign .arrow-ic {
+  margin: auto 10px;
+  transform: rotate(180deg);
+}
+
+hr {
+  height: 10px;
+  width: 100%;
+  background-color: #f4f4f4;
+  margin: 0;
+  border: none;
+  outline: none;
+}
+
+.sub-menu button {
+  display: flex;
+  background-color: white;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #f4f4f4;
+  padding: 20px 15px;
+  justify-content: space-between;
+}
+
+.sub-menu button p {
+  font-size: 16px;
+  margin: 0;
+  text-align: start;
+}
+
+.sub-menu button div p.description {
+  font-size: 14px;
+  color: gray;
+  margin-top: 8px;
+}
+
+.sub-menu button span {
+  background-color: hotpink;
+  color: white;
+  padding: 3px;
+  border-radius: 12px;
+  font-size: 12px;
+  margin: 0 0 0 8px;
+}
+
+.sub-menu button img {
+  transform: rotate(180deg);
+  margin: auto 10px;
 }

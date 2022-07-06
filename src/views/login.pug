@@ -1,9 +1,24 @@
 extends layout
 
-block js 
-
-block content 
-    form(method="POST")
+block js
+    script.
+        function handleSignin(){
+            window.location.href = '/signin'
+        }
+block content
+    div.topContent
+        img('cancel.pug')
+    form.login-form(method="POST")
         input(placeholder='아이디 또는 이메일', name='id' )
         input(placeholder='비밀번호', name='password')
         input(type="submit", value="로그인")
+    div.forgot-container
+        button 아이디 찾기
+        p |
+        button 비밀번호 찾기
+    section.oAuth-menu 
+        button 페이스북으로 로그인
+        button 네이버로 로그인
+        button Apple로 로그인
+    p 혹시, 배달의민족이 처음이신가요? 
+        span(onclick='handleSignin()') 회원가입

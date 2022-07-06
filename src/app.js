@@ -9,6 +9,8 @@ app.set("view engine", "pug");
 app.set("views", process.cwd() + "/src/views");
 app.use(logger("dev"));
 app.use(cookieParser());
+app.use(express.static("src/style"));
+app.use(express.static("src/img"));
 
 app.use("/", globalRouter);
 app.listen(PORT, () => console.log(`listening on http://localhost:${PORT} 🚀`));

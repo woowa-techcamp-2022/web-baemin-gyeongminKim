@@ -1,10 +1,9 @@
 extends layout
-include mixins/button
 
-h2 X
+block js 
+
 block content 
-    form
-        input(placeholder='아이디 또는 이메일')
-        input(placeholder='비밀번호')
-        +primaryButton('로그인', 'submit', 'form')
-        
+    form(method="POST")
+        input(placeholder='아이디 또는 이메일', name='id' )
+        input(placeholder='비밀번호', name='password')
+        input(type="submit", value="로그인")

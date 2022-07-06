@@ -1,4 +1,65 @@
-h1 로그인 페이지
-form
-    input(placeholder="아이디", type="text", value="id")
-    input(type="submit", value="로그인")
+extends layout
+
+block js 
+    script.
+       function handleLogin(){
+        console.log(';dddd')
+        window.location.href+='login'
+       }
+
+block content 
+    div.topContent
+        header my배민
+    img.banner(src='banner.png')
+    button.profile(onclick='handleLogin();')
+        img(src='user.png')
+        p.message 로그인해주세요
+        img.login-ic(src ='left.svg')
+    nav.nav-container
+        ol
+            li
+                img(src='point.png')
+                p 포인트
+            li
+                img(src='coupon.png')
+                p 쿠폰
+            li
+                img(src='present.png')
+                p 선물함
+            li
+                img(src='cart.png')
+                p 찜
+            li
+                img(src='order.png')
+                p 주문 내역
+            li
+                img(src='review.png')
+                p 리뷰 관리
+    hr
+    button.eco-campaign
+        img.eco-ic(src="root.png")
+        p 일회용품 덜 쓰기, 함께해요!
+        img.arrow-ic(src='left.svg')
+    hr
+    section.sub-menu
+        button.regist-baemin-pay 
+            div
+                p 배민페이 등록
+                    span NEW
+                p.description 배민페이로 결제하면 최대 5.5% 배민포인트가 적립됩니다!
+            img(src='left.svg')
+
+        button.manage-family
+            div 
+                p 가족계정 관리
+                    span NEW
+                p.description 결제수단을 공유해 우리 가족의 끼니를 챙겨주세요.
+            img(src='left.svg')
+                
+        button.notice
+            p 공지사항
+            img(src='left.svg')
+        button.service-baemin-connect 
+            p 배민커넥트 지원
+            img(src='left.svg')
+            

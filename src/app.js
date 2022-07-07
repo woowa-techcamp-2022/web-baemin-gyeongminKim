@@ -2,6 +2,7 @@ import express from "express";
 import logger from "morgan";
 import cookieParser from "cookie-parser";
 import { globalRouter } from "./routers/global.js";
+import { signupRouter } from "./routers/singup.js";
 
 const app = express();
 const PORT = 4000;
@@ -14,5 +15,5 @@ app.use(express.static("src/style"));
 app.use(express.static("src/img"));
 
 app.use("/", globalRouter);
-//app.use("/user", userRouter);
+app.use("/signup", signupRouter);
 app.listen(PORT, () => console.log(`listening on http://localhost:${PORT} 🚀`));

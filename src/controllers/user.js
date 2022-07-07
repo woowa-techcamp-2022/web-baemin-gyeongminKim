@@ -19,8 +19,9 @@ export const checkFormData = (req, res, next) => {
   if (isId && isPassword) {
     if (id === fakeUser[0].email || password === fakeUser[0].password) {
       return res.redirect(`/${fakeUser[0].userId}`);
-    } //else return res.redirect("/login/error");
-  } else return res.redirect("/login-error");
+    } else return res.render("login", { error: true, id, password });
+  }
+  return res.render("login");
 };
 
 export const renderUserMainPage = (req, res) => {

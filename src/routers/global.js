@@ -1,7 +1,14 @@
 import express from "express";
-import { login } from "../controllers/login.js";
-import { mainPage, loginPage } from "../controllers/page.js";
+import {
+  checkFormData,
+  renderLoginPage,
+  renderUserMainPage,
+  renderErrorLoginPage,
+} from "../controllers/user.js";
+import { mainPage } from "../controllers/page.js";
 
 export const globalRouter = express.Router();
 globalRouter.get("/", mainPage);
-globalRouter.route("/login").post(login).get(loginPage);
+globalRouter.get("/:id(\\d+)", renderUserMainPage);
+globalRouter.route("/login").post(checkFormData).get(renderLoginPage);
+globalRouter.get("/login-error", renderErrorLoginPage);

@@ -13,7 +13,10 @@ block content
     img.banner(src='banner.png')
     button.profile(onclick='handleLogin();')
         img(src='user.png')
-        p.message 로그인해주세요
+        if userName 
+            p.message=userName
+        else
+            p.message 로그인해주세요
         img.login-ic(src ='left.svg')
     nav.nav-container
         ol

@@ -14,4 +14,5 @@ app.use(express.static("src/style"));
 app.use(express.static("src/img"));
 
 app.use("/", globalRouter);
+//app.use("/user", userRouter);
 app.listen(PORT, () => console.log(`listening on http://localhost:${PORT} 🚀`));

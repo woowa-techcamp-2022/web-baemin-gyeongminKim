@@ -1,11 +1,4 @@
-const fakeUser = [
-  {
-    userId: 1,
-    name: "경민",
-    email: "a9120a@gmail.com",
-    password: "0110",
-  },
-];
+import db from "../database.js";
 
 export const renderLoginPage = (req, res) => res.render("login");
 export const renderErrorLoginPage = (req, res) =>
@@ -17,8 +10,10 @@ export const checkFormData = (req, res, next) => {
   const isPassword = password === "" ? false : true;
 
   if (isId && isPassword) {
-    if (id === fakeUser[0].email || password === fakeUser[0].password) {
-      return res.redirect(`/${fakeUser[0].userId}`);
+    const { account } = db.data;
+    const user = account.find((el) => el.email === id);
+    if (id === user.email || password === user.password) {
+      return res.redirect("/");
     } else return res.render("login", { error: true, id, password });
   }
   return res.render("login");
@@ -27,7 +22,7 @@ export const checkFormData = (req, res, next) => {
 export const renderUserMainPage = (req, res) => {
   const { id } = req.params;
 
-  const userName = fakeUser[id - 1].name;
+  const userName = account[id - 1].name;
   return res.render("main", { userName });
 };
 

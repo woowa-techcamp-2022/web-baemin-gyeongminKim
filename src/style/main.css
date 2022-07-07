@@ -1,5 +1,5 @@
 .topContent {
-  padding: 10px 10px;
+  padding: 10px 15px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,6 +10,7 @@
   object-fit: contain;
 }
 .profile {
+  cursor: pointer;
   display: flex;
   align-items: center;
   /* justify-content: space-between; */
@@ -47,6 +48,7 @@
 }
 
 .nav-container ol li {
+  cursor: pointer;
   margin: auto;
   padding: 10px 0;
   box-sizing: border-box;
@@ -75,6 +77,7 @@
 }
 
 .eco-campaign {
+  cursor: pointer;
   display: flex;
   width: 100%;
   background-color: white;
@@ -106,6 +109,7 @@ hr {
 }
 
 .sub-menu button {
+  cursor: pointer;
   display: flex;
   background-color: white;
   outline: none;

@@ -2,8 +2,49 @@ extends layout
 
 block css
     link(rel='styleSheet', href='/terms.css', type='text/css')
-block js 
-    
+block js
+    script.
+       function handleActiveNextBtn(state){
+         const $nextBtn = document.querySelector("#next-btn");
+         $nextBtn.disabled = !state
+       }
+        function handleAcceptAllTerm(){
+            const $allTermCheckbox = document.querySelector("#all-term-checkbox");
+            const $checkboxList = document.querySelectorAll(".checkbox");
+            for(let checkbox of $checkboxList){
+                checkbox.checked = $allTermCheckbox.checked;
+            }
+           if($allTermCheckbox.checked){
+            handleActiveNextBtn(true)
+           }else{
+             handleActiveNextBtn(false)
+           }
+        }
+        function handleAcceptTerm(){
+            const $allTermCheckbox = document.querySelector("#all-term-checkbox");
+            const $checkboxList = document.querySelectorAll(".checkbox");
+            const $checkboxRequiredList = document.querySelectorAll(".required");
+            let checkedCount = 0;
+            let requiredCount = 0;
+            for(let checkbox of $checkboxList){
+                if(checkbox.checked) checkedCount++;
+            }
+            if(checkedCount === 5) $allTermCheckbox.checked = true;
+            else $allTermCheckbox.checked = false;
+
+            for(let required of $checkboxRequiredList){
+                if(required.checked) requiredCount++;
+            }
+            if($allTermCheckbox.checked || requiredCount===3){
+            handleActiveNextBtn(true)
+           }else{
+             handleActiveNextBtn(false)
+           }
+        }
+        function handleNextPage(){
+            window.location.href='mobile'
+        }
+
 block content
     div.top-content
         img(src='/cancel.png')
@@ -12,38 +53,38 @@ block content
     h1.page-title 어서오세요<br/>약관동의가 필요해요
     section.all-term-container
         label.checkbox-container 
-            input(type='checkbox', checked='checked')
+            input#all-term-checkbox(type='checkbox', onchange="handleAcceptAllTerm()")
             p(style={'font-weight': 'bold'}) 전체동의
             span.check-mark
     hr
     section.terms-container
         div.term
             label.checkbox-container 
-                input(type='checkbox', checked='checked')
+                input.checkbox.required(type='checkbox',  onchange="handleAcceptTerm()")
                 p 배달의민족 이용약관 동의
                 span.check-mark
             img(src='/left.svg')
         div.term
             label.checkbox-container 
-                input(type='checkbox', checked='checked')
+                input.checkbox.required(type='checkbox', onchange="handleAcceptTerm()")
                 p 전자금융거래 이용약관 동의
                 span.check-mark
             img(src='/left.svg')
         div.term
             label.checkbox-container 
-                input(type='checkbox', checked='checked')
+                input.checkbox.required(type='checkbox',  onchange="handleAcceptTerm()")
                 p 개인정보 수집이용 동의
                 span.check-mark
             img(src='/left.svg')
         div.term
             label.checkbox-container 
-                input(type='checkbox', checked='checked')
+                input.checkbox(type='checkbox', onchange="handleAcceptTerm()")
                 p 개인정보 제 3자 제공 동의(선택)
                 span.check-mark
             img(src='/left.svg')
         div.term
             label.checkbox-container 
-                input(type='checkbox', checked='checked')
+                input.checkbox(type='checkbox',  onchange="handleAcceptTerm()")
                 p 마케팅 정보 메일, SMS 수신동의(선택)
                 span.check-mark
             img(src='/left.svg')
@@ -64,7 +105,7 @@ block content
                     span.radio-mark
                 img(src='/child.png')
 
-        button.primary-btn 다음으로
+        button.primary-btn#next-btn(onClick='handleNextPage()', disabled) 다음으로
 
 
     

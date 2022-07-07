@@ -29,3 +29,7 @@ export const renderUserMainPage = (req, res) => {
   const userName = fakeUser[id - 1].name;
   return res.render("main", { userName });
 };
+
+export const renderTermsPage = (req, res) => res.render("terms");
+export const renderMobilePage = (req, res) => res.render("mobile");
+export const renderUserInfoPage = (req, res) => res.render("userInfo");

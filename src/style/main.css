@@ -1,18 +1,5 @@
-html {
-  background-color: #eee;
-  font-size: 14px;
-}
-body {
-  box-sizing: border-box;
-  background-color: #fff;
-  height: 100vh;
-  width: 420px;
-  margin: 0 auto;
-  padding: 20px 0;
-  box-shadow: #ddd 2px 2px 20px;
-}
 .topContent {
-  padding: 10px 10px;
+  padding: 10px 15px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,6 +10,7 @@ body {
   object-fit: contain;
 }
 .profile {
+  cursor: pointer;
   display: flex;
   align-items: center;
   /* justify-content: space-between; */
@@ -60,6 +48,7 @@ body {
 }
 
 .nav-container ol li {
+  cursor: pointer;
   margin: auto;
   padding: 10px 0;
   box-sizing: border-box;
@@ -88,6 +77,7 @@ body {
 }
 
 .eco-campaign {
+  cursor: pointer;
   display: flex;
   width: 100%;
   background-color: white;
@@ -119,6 +109,7 @@ hr {
 }
 
 .sub-menu button {
+  cursor: pointer;
   display: flex;
   background-color: white;
   outline: none;

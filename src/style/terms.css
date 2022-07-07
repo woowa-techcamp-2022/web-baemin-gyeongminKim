@@ -1,0 +1,172 @@
+.top-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+  align-items: center;
+
+  margin: 0 0 80px 0;
+}
+.top-content img {
+  object-fit: contain;
+  width: 16px;
+  height: 16px;
+}
+.top-content div {
+  width: 15px;
+}
+.page-title {
+  display: block;
+  padding: 0 15px;
+}
+.all-term-container {
+  padding: 0 15px;
+}
+.terms-container {
+  padding: 0 15px;
+}
+.checkbox-container {
+  display: inline-flex;
+  justify-content: flex-start;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  font-size: 1rem;
+  background-color: none;
+}
+.terms-container .term {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.terms-container .term img {
+  width: 20px;
+  height: 20px;
+  margin: 15px;
+  transform: rotate(180deg);
+}
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.check-mark {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: var(--gray-500);
+  border-radius: 5px;
+}
+
+.checkbox-container input:checked ~ .check-mark {
+  background-color: var(--mint);
+}
+
+.check-mark:after {
+  content: "";
+  position: absolute;
+}
+
+.checkbox-container input:checked ~ .check-mark:after {
+  display: block;
+}
+
+.checkbox-container .check-mark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.age-checkbox-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0 15px;
+  gap: 12px;
+}
+
+.age-checkbox-container div {
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: var(--gray-200);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  font-size: 1rem;
+  box-sizing: border-box;
+  background-color: none;
+}
+.age-checkbox-container div img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+.age-checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.age-checkbox-container .radio-mark {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 12px;
+  height: 25px;
+  width: 25px;
+  background-color: var(--gray-500);
+  border-radius: 50%;
+}
+.age-checkbox-container input:checked ~ .radio-mark {
+  background-color: var(--mint);
+}
+
+.radio-mark:after {
+  content: "";
+  position: absolute;
+}
+
+.age-checkbox-container input:checked ~ .radio-mark:after {
+  display: block;
+}
+
+.age-checkbox-container .radio-mark:after {
+  left: 8px;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  border: solid white;
+  border-radius: 50%;
+  background-color: white;
+}
+.primary-btn {
+  cursor: pointer;
+  text-align: center;
+  padding: 0;
+  height: 48px;
+  color: var(--white);
+  font-size: 20px;
+  background-color: var(--mint);
+  border-radius: 8px;
+  font-weight: bold;
+  border: none;
+  width: 100%;
+  margin-top: 40px;
+  box-sizing: border-box;
+}
+.primary-btn:disabled {
+  background-color: var(--gray-500);
+}

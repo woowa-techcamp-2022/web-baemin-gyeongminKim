@@ -11,3 +11,19 @@ body {
   padding: 20px 0;
   box-shadow: #ddd 2px 2px 20px;
 }
+
+:root {
+  --white: #fff;
+  --gray-100: #fafafa;
+  --gray-200: #f7f7f7;
+  --gray-300: #e8e8e9;
+  --gray-400: #aeaeb2;
+  --gray-500: #adb5bd;
+  --gray-600: #5d5d66;
+  --gray-700: #393944;
+  --gray-800: #23232f;
+  --gray-900: #171724;
+  --black: #000;
+  --mint: #28c1bc;
+  --view-width: 390px;
+}

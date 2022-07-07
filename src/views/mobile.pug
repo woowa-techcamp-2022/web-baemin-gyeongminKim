@@ -1,8 +1,31 @@
 extends layout
 block css
-    link(rel='styleSheet', href='mobile.css', type='text/css')
+    link(rel='styleSheet', href='/mobile.css', type='text/css')
 block js 
-    
-
+    script.
+        let isSendVeritied = true;
+        function handleSendVerified(){
+            isSendVeritied= true;
+        }
 block content
-    h1 모바일 인증  
+    div.top-content
+        img(src='/arrow-left.png')
+        header 회원가입
+        button 다음
+    div.main-content
+        section.mobile-container 
+            label.mobile-form 휴대전화
+                input(type='mobile')
+                img.close-ic(src='/close-circle.png')
+                img.check-ic(src='/check-inactive.png')
+            div.number-form
+                label 인증번호
+                    input(type='mobile')
+                    img.close-ic(src='/close-circle.png')
+                    img.check-ic(src='/check-inactive.png')
+                button.resend-btn 인증번호 다시받기
+        if !isSendVeritied 
+            button.line-btn(onclick='handleSendVerified()') 인증번호 받기
+
+
+    

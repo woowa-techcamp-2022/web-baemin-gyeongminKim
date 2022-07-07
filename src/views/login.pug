@@ -3,15 +3,18 @@ block css
     link(rel='styleSheet', href='login.css', type='text/css')
 block js
     script.
-        function handleSignin(){
+        function handleSignup(){
             window.location.href = '/signin'
         }
+       
 block content
     div.topContent
         img(src='cancel.png')
     form.login-form(method="POST")
         input(placeholder='아이디 또는 이메일', name='id' )
         input(placeholder='비밀번호', name='password')
+        if error
+            p 아이디 비밀번호 입력해주세요
         input.primary-btn(type="submit", value="로그인")
     div.forgot-container
         button 아이디 찾기
@@ -28,4 +31,4 @@ block content
             img(src='apple.png')
             p Apple로 로그인
     p.signup-message 혹시, 배달의민족이 처음이신가요? 
-        span(onclick='handleSignin()') 회원가입
+        span(onclick='handleSignup()') 회원가입

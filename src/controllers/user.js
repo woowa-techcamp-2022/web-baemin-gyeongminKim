@@ -10,10 +10,22 @@ export const checkFormData = (req, res, next) => {
   const isPassword = password === "" ? false : true;
 
   if (isId && isPassword) {
+    console.log(req.session);
+
     const { account } = db.data;
     const user = account.find((el) => el.email === id);
     if (id === user.email || password === user.password) {
-      return res.redirect("/");
+      if (req.session.user) {
+        console.log("already session");
+      } else {
+        req.session.user = {
+          id: user.email,
+          pw: user.password,
+          name: user.nickname,
+          authorized: true,
+        };
+      }
+      return res.cookie("session", req.session).redirect("/");
     } else return res.render("login", { error: true, id, password });
   }
   return res.render("login");

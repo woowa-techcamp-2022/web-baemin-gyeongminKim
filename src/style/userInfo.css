@@ -31,9 +31,22 @@
 }
 .email-form {
   display: flex;
+
   width: 100%;
 }
+.detail-form {
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+}
+.email-form label {
+  padding-right: 80px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
 .email-form button {
+  width: max-content;
   background-color: var(--white);
   border: 1px solid var(--gray-700);
   border-radius: 4px;

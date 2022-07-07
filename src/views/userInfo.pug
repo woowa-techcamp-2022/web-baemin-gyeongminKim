@@ -2,30 +2,35 @@ extends layout
 block css
     link(rel='styleSheet', href='/userInfo.css', type='text/css')
 block js 
-    
+    script.
+        function checkDuplication(){
+            const $detailForm = document.querySelector(".detail-form");
+                $detailForm.style.display= 'flex'
+        }
+        function handleSignup(){
+            window.location.href='/signup'
+        }
 
 block content
     div.top-content
         img(src='/arrow-left.png')
         header 회원가입
-        button 완료
+        button(onclick='handleSignup()',type='submit', ) 완료
     div.main-content
         section.userInfo-container 
             div.email-form
                 label 이메일
-                    input(type='text')
+                    input(type='email')
                     img.close-ic(src='/close-circle.png')
                     img.check-ic(src='/check-inactive.png')
-                button 중복확인
-            label 닉네임
-                input(type='text')
-                img.close-ic(src='/close-circle.png')
-                img.check-ic(src='/check-inactive.png')
-            label 비밀번호
-                input(type='text')
-                img.close-ic(src='/close-circle.png')
-                img.check-ic(src='/check-inactive.png')
-            label 생년월일
-                input(type='text',placeholder='예) 2000.01.01')
-                img.close-ic(src='/close-circle.png')
-                img.check-ic(src='/check-inactive.png')
+                button(onclick='checkDuplication()') 중복확인
+            div.detail-form
+                label 닉네임
+                    input(type='text')
+                    img.check-ic(src='/check-inactive.png')
+                label 비밀번호
+                    input(type='password')
+                    img.check-ic(src='/check-inactive.png')
+                label 생년월일
+                    input(type='text',placeholder='예) 2000.01.01')
+                    img.check-ic(src='/check-inactive.png')

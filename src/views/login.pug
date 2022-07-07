@@ -4,15 +4,15 @@ block css
 block js
     script.
         function handleSignup(){
-            window.location.href = '/signin'
+            window.location.href = '/signup/terms'
         }
        
 block content
     div.top-content
         img(src='cancel.png')
     form.login-form(method="POST")
-        input(placeholder='아이디 또는 이메일', name='id' )
-        input(placeholder='비밀번호', name='password')
+        input(placeholder='아이디 또는 이메일', name='id', value=id)
+        input(placeholder='비밀번호', name='password',type='password', value=password)
         if error
             p 아이디 비밀번호 입력해주세요
         input.primary-btn(type="submit", value="로그인")

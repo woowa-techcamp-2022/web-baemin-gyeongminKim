@@ -1,0 +1,58 @@
+extends layout
+block css
+    link(rel='styleSheet', href='/mobile.css', type='text/css')
+block js 
+    script.
+        function insertHypen(){
+            const $mobileInput = document.querySelector("#mobile-input");
+            $mobileInput.value = $mobileInput.value.replace(/[^0-9]/g, '').replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3").replace(/(\-{1,2})$/g, "");
+        }
+        function clearInput(){
+            const $mobileInput = document.querySelector("#mobile-input");
+            $mobileInput.value = ''
+        }
+        function handleSendVerified(){
+            const $numberForm = document.querySelector(".number-form")
+            const $numberInput = document.querySelector("#number-input")
+            const $sendBtn = document.querySelector(".line-btn")
+            const $nextBtn = document.querySelector("#nextBtn")
+            $numberForm.style.display = 'contents'
+            $sendBtn.style.display ='none'
+           
+            setTimeout(()=>{
+                $numberInput.value=createRandomNumber(); 
+                $nextBtn.style.color = '#28c1bc'
+                $nextBtn.disabled= false
+            }, 2000)
+        }
+        function createRandomNumber(){
+            const randomNum = Math.floor(Math.random()*(9999-1000+1))+1000
+            return randomNum
+
+        }
+        function handleNextPage(){
+            window.location.href='userInfo'
+        }
+       
+
+block content
+    div.top-content
+        img(src='/arrow-left.png')
+        header 회원가입
+        button#nextBtn(disabled, onclick='handleNextPage()') 다음
+    div.main-content
+        section.mobile-container 
+            label.mobile-form 휴대전화
+                input#mobile-input(type='tel', onkeyup = 'insertHypen()', maxlength='13')
+                img.close-ic(src='/close-circle.png', onclick='clearInput()')
+                img.check-ic(src='/check-inactive.png')
+            div.number-form(style={display:'none'})
+                label 인증번호
+                    input#number-input(type='number', placeholder="인증번호를 입력해주세요")
+                    img.close-ic(src='/close-circle.png')
+                    img.check-ic(src='/check-inactive.png')
+                button.resend-btn(onclick='handleSendVerified()') 인증번호 다시받기
+            button.line-btn(onclick='handleSendVerified()') 인증번호 받기
+
+
+    

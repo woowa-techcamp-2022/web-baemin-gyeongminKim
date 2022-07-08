@@ -1,7 +1,34 @@
-extends layout 
-block topContent 
-    h2 X
-block mainContent 
-    form
-        input(placeholder='아이디 또는 이메일')
-        input(placeholder='비밀번호')
+extends layout
+block css
+    link(rel='styleSheet', href='login.css', type='text/css')
+block js
+    script.
+        function handleSignup(){
+            window.location.href = '/signup/terms'
+        }
+       
+block content
+    div.top-content
+        img(src='cancel.png')
+    form.login-form(method="POST")
+        input(placeholder='아이디 또는 이메일', name='id', value=id)
+        input(placeholder='비밀번호', name='password',type='password', value=password)
+        if error
+            p 아이디 비밀번호 입력해주세요
+        input.primary-btn(type="submit", value="로그인")
+    div.forgot-container
+        button 아이디 찾기
+        p |
+        button 비밀번호 찾기
+    section.oAuth-menu 
+        button
+            img(src='facebook.png')
+            p 페이스북으로 로그인
+        button
+            img(src='naver.png')
+            p 네이버로 로그인
+        button 
+            img(src='apple.png')
+            p Apple로 로그인
+    p.signup-message 혹시, 배달의민족이 처음이신가요? 
+        span(onclick='handleSignup()') 회원가입

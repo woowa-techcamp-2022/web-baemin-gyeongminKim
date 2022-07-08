@@ -1,2 +1,7 @@
-export const mainPage = (req, res) => res.render("main");
-export const loginPage = (req, res) => res.render("login");
+export const mainPage = (req, res) => {
+  let userName = "";
+  if (req.session.user) {
+    userName = req.session.user.name;
+  }
+  return res.render("main", { userName });
+};

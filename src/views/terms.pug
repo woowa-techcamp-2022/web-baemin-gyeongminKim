@@ -1,0 +1,112 @@
+extends layout
+
+block css
+    link(rel='styleSheet', href='/terms.css', type='text/css')
+block js
+    script.
+       function handleActiveNextBtn(state){
+         const $nextBtn = document.querySelector("#next-btn");
+         $nextBtn.disabled = !state
+       }
+        function handleAcceptAllTerm(){
+            const $allTermCheckbox = document.querySelector("#all-term-checkbox");
+            const $checkboxList = document.querySelectorAll(".checkbox");
+            for(let checkbox of $checkboxList){
+                checkbox.checked = $allTermCheckbox.checked;
+            }
+           if($allTermCheckbox.checked){
+            handleActiveNextBtn(true)
+           }else{
+             handleActiveNextBtn(false)
+           }
+        }
+        function handleAcceptTerm(){
+            const $allTermCheckbox = document.querySelector("#all-term-checkbox");
+            const $checkboxList = document.querySelectorAll(".checkbox");
+            const $checkboxRequiredList = document.querySelectorAll(".required");
+            let checkedCount = 0;
+            let requiredCount = 0;
+            for(let checkbox of $checkboxList){
+                if(checkbox.checked) checkedCount++;
+            }
+            if(checkedCount === 5) $allTermCheckbox.checked = true;
+            else $allTermCheckbox.checked = false;
+
+            for(let required of $checkboxRequiredList){
+                if(required.checked) requiredCount++;
+            }
+            if($allTermCheckbox.checked || requiredCount===3){
+            handleActiveNextBtn(true)
+           }else{
+             handleActiveNextBtn(false)
+           }
+        }
+        function handleNextPage(){
+            window.location.href='mobile'
+        }
+
+block content
+    div.top-content
+        img(src='/cancel.png')
+        header 회원가입
+        div
+    h1.page-title 어서오세요<br/>약관동의가 필요해요
+    section.all-term-container
+        label.checkbox-container 
+            input#all-term-checkbox(type='checkbox', onchange="handleAcceptAllTerm()")
+            p(style={'font-weight': 'bold'}) 전체동의
+            span.check-mark
+    hr
+    section.terms-container
+        div.term
+            label.checkbox-container 
+                input.checkbox.required(type='checkbox',  onchange="handleAcceptTerm()")
+                p 배달의민족 이용약관 동의
+                span.check-mark
+            img(src='/left.svg')
+        div.term
+            label.checkbox-container 
+                input.checkbox.required(type='checkbox', onchange="handleAcceptTerm()")
+                p 전자금융거래 이용약관 동의
+                span.check-mark
+            img(src='/left.svg')
+        div.term
+            label.checkbox-container 
+                input.checkbox.required(type='checkbox',  onchange="handleAcceptTerm()")
+                p 개인정보 수집이용 동의
+                span.check-mark
+            img(src='/left.svg')
+        div.term
+            label.checkbox-container 
+                input.checkbox(type='checkbox', onchange="handleAcceptTerm()")
+                p 개인정보 제 3자 제공 동의(선택)
+                span.check-mark
+            img(src='/left.svg')
+        div.term
+            label.checkbox-container 
+                input.checkbox(type='checkbox',  onchange="handleAcceptTerm()")
+                p 마케팅 정보 메일, SMS 수신동의(선택)
+                span.check-mark
+            img(src='/left.svg')
+
+        hr
+        section.age-checkbox-container 
+            div
+                label
+                    input(type='radio', name='age' checked)
+                    p(style={'font-weight': 'bold'}) 만 14세 이상입니다 
+                    span.radio-mark
+                img(src='/adult.png')
+            div
+                label
+                    input(type='radio', name='age')
+                    p(style={'font-weight': 'bold'}) 만 14세 미만입니다. 
+                    p.desciption 본인확인이 된 보호자의 배민계정이 필요해요
+                    span.radio-mark
+                img(src='/child.png')
+
+        button.primary-btn#next-btn(onClick='handleNextPage()', disabled) 다음으로
+
+
+    
+       

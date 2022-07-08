@@ -1,7 +1,9 @@
 html(lang='ko')
   head
     title 배달의민족
+    link(rel='stylesheet', href='/global.css', type='text/css')
+    block css
+    block js
   body
     main
-        block topContent
-        block mainContent
+        block content

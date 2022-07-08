@@ -1,0 +1,146 @@
+.top-content {
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.banner {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+}
+.profile {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  border: none;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px 15px;
+  background-color: var(--white);
+}
+.profile .login-ic {
+  width: 20px;
+  height: 20px;
+  margin: 15px;
+  transform: rotate(180deg);
+}
+.profile p {
+  font-size: 24px;
+  color: var(--gray-400);
+  margin: 0 auto 0 15px;
+}
+.profile img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: contain;
+}
+.nav-container ol {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  list-style: none;
+}
+
+.nav-container ol li {
+  cursor: pointer;
+  margin: auto;
+  padding: 10px 0;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  outline: 1px solid var(--gray-200);
+}
+
+.nav-container ol p {
+  text-align: center;
+  margin: 8px 0;
+}
+
+.nav-container ol img {
+  margin: auto;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.sub-menu {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.eco-campaign {
+  cursor: pointer;
+  display: flex;
+  width: 100%;
+  background-color: var(--white);
+  border: none;
+  padding: 10px 15px;
+}
+.eco-campaign p {
+  font-size: 16px;
+  margin: auto auto auto 15px;
+  text-align: start;
+}
+.eco-campaign .eco-ic {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+.eco-campaign .arrow-ic {
+  margin: auto 10px;
+  transform: rotate(180deg);
+}
+
+hr {
+  height: 10px;
+  width: 100%;
+  background-color: var(--gray-200);
+  margin: 0;
+  border: none;
+  outline: none;
+}
+
+.sub-menu button {
+  cursor: pointer;
+  display: flex;
+  background-color: var(--white);
+  outline: none;
+  border: none;
+  border-bottom: 1px solid var(--gray-200);
+  padding: 20px 15px;
+  justify-content: space-between;
+}
+
+.sub-menu button p {
+  font-size: 16px;
+  margin: 0;
+  text-align: start;
+}
+
+.sub-menu button div p.description {
+  font-size: 14px;
+  color: var(--gray-400);
+  margin-top: 8px;
+}
+
+.sub-menu button span {
+  background-color: hotpink;
+  color: var(--white);
+  padding: 3px;
+  border-radius: 12px;
+  font-size: 12px;
+  margin: 0 0 0 8px;
+}
+
+.sub-menu button img {
+  transform: rotate(180deg);
+  margin: auto 10px;
+}

@@ -7,7 +7,7 @@ import { globalRouter } from "./routers/global.js";
 import { signupRouter } from "./routers/singup.js";
 
 const app = express();
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 app.set("view engine", "pug");
 app.set("views", process.cwd() + "/src/views");
 app.use(logger("dev"));

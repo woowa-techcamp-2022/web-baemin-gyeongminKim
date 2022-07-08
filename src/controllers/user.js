@@ -1,8 +1,16 @@
 import db from "../database.js";
 
 export const renderLoginPage = (req, res) => res.render("login");
-export const renderErrorLoginPage = (req, res) =>
-  res.render("login", { error: true });
+export const renderUserMainPage = (req, res) => {
+  const { id } = req.params;
+
+  const userName = account[id - 1].name;
+  return res.render("main", { userName });
+};
+
+export const renderTermsPage = (req, res) => res.render("terms");
+export const renderMobilePage = (req, res) => res.render("mobile");
+export const renderUserInfoPage = (req, res) => res.render("userInfo");
 
 export const checkFormData = (req, res, next) => {
   const { id, password } = req.body;
@@ -31,13 +39,10 @@ export const checkFormData = (req, res, next) => {
   return res.render("login");
 };
 
-export const renderUserMainPage = (req, res) => {
-  const { id } = req.params;
-
-  const userName = account[id - 1].name;
-  return res.render("main", { userName });
+export const signup = (req, res) => {
+  const { email, birthday, nickname, password } = req.body;
+  console.log(req.body);
+  db.data.account.push({ email, birthday, nickname, password });
+  db.write();
+  return res.redirect("/login");
 };
-
-export const renderTermsPage = (req, res) => res.render("terms");
-export const renderMobilePage = (req, res) => res.render("mobile");
-export const renderUserInfoPage = (req, res) => res.render("userInfo");

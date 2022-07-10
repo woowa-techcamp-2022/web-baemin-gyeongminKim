@@ -1,0 +1,24 @@
+{
+  "account": [
+    {
+      "nickname": "경민",
+      "email": "a9120a@gmail.com",
+      "password": "0110",
+      "birthday": "19970110",
+      "mobile": "01091204649"
+    },
+    {
+      "nickname": "우캠",
+      "email": "woowa@gmail.com",
+      "password": "0110",
+      "birthday": "19970110",
+      "mobile": "01091204649"
+    },
+    {
+      "email": "camp_a9120a@woowafriends.com",
+      "birthday": "2323232",
+      "nickname": "23232",
+      "password": "3232323"
+    }
+  ]
+}
